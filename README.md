@@ -38,17 +38,18 @@ TechGPT-2.0 在继承了 TechGPT-1.0 的能力上进行了重要的改进，其�
 
 ## 模型下载与体验
 ### 下载地址
-| 模型名称                             |  类型  | 训练方式 |  大小   |                              下载地址                              |
-|:---------------------------------|:----:|:----:|:-----:|:------------------------------------------------------------------:|
-| TechGPT-1.0                      | 指令模型 | 全量微调 | 13 GB | [[🤗HF]](https://huggingface.co/neukg/TechGPT-7B)  |
-| TechGPT-2.0-Alpaca 🆕            | 指令模型 | 全量微调 | 13 GB |  [[🤗HF]](https://huggingface.co/neukg/TechGPT-2.0-alpaca-hf)  |
-| TechGPT-2.0-Atom 🆕              | 指令模型 | 全量微调 | 13 GB | [[🤗HF]](https://huggingface.co/neukg/TechGPT-2.0-atom-hf) |
+| 模型名称                  |  类型  |  训练方式  |  大小   |                              下载地址                              |
+|:----------------------|:----:|:------:|:-----:|:------------------------------------------------------------------:|
+| TechGPT-1.0           | 指令模型 |  全量微调  | 13 GB | [[🤗HF]](https://huggingface.co/neukg/TechGPT-7B)  |
+| TechGPT-2.0-Alpaca 🆕 | 指令模型 |  全量微调  | 13 GB |  [[🤗HF]](https://huggingface.co/neukg/TechGPT-2.0-alpaca-hf)  |
+| TechGPT-2.0-Atom 🆕   | 指令模型 |  全量微调  | 13 GB | [[🤗HF]](https://huggingface.co/neukg/TechGPT-2.0-atom-hf) |
+| TechGPT-2.0-QLora 🆕  | 指令模型 | Lora微调 | 3 GB  | [[🤗HF]](https://huggingface.co/neukg/TechGPT-2.0-QLora-hf) |
 
 ### 模型说明
 **TechGPT2** 在不同规模且经过扩充后的**TechKG**大规模的中文学术语料支持下训练完成。
 - **TechGPT2-Alpaca** 使用HFL发布的Chinese-Alpaca-2-7B模型，Chinese-Alpaca-2-7B模型是在Chinese-LLaMA-2-7B的基础上进一步通过指令精调获得。Chinese-LLaMA-2-7B为基座模型，是在LLaMA-2的基础上进行中文增量训练获得。
 - **TechGPT2-Atom** 使用Llama中文社区联合AtomEcho（原子回声）共同发布的Atom-7B-chat，并在此基础上进行全量微调后获得。
-- 此外，我们使用**QLora线性插值法**微调的长文本模型参数也将在后续补充开放。
+- 此外，我们使用**QLora线性插值法**微调的长文本模型的Lora权重也已经发布在huggingface上，请自行下载合并。
 
 我们TechGPT-2的两个**7B**版本的模型已经在Hugging Face和GitHub上开源，使用后续在此模型基础上的改进，也将开源到相同账号，欢迎各位使用并提出宝贵的意见。
 
@@ -420,7 +421,8 @@ TechGPT-2.0 在保留了 TechGPT-1.0 模型的通用能力、实体识别能力�
 
 ## 免责声明
 
-该项目可供学习及商业使用。在使用过程中，使用者需认真阅读并遵守以下声明:
+该项目对学术研究完全开放，也可申请免费的商业使用授权，请填写[问卷]()后发到指定邮箱：renfeiliang@ise.neu.edu.cn。
+在使用过程中，使用者需认真阅读并遵守以下声明:
 
 1. 本项目仅为大模型测试功能而生，使用者需自行承担风险和责任，如因使用不当而导致的任何损失或伤害，本项目概不负责。
 2. 本项目中出现的第三方链接或库仅为提供便利而存在，其内容和观点与本项目无关。使用者在使用时需自行辨别，本项目不承担任何连带责任；
