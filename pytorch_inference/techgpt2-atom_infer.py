@@ -24,7 +24,7 @@ model.to(device)
 model.eval()
 
 generation_config = GenerationConfig(
-    temperature=0.1,
+    temperature=0.3,
     top_p=0.95,
     top_k=50,
     num_beams=1,
@@ -36,7 +36,7 @@ generation_config = GenerationConfig(
     do_sample=True,
 )
 
-example = '抽取出下面文本的实体和实体类型：《女人树》，国产电视剧，由导演田迪执导，根据作家子页的原著改编，故事从1947年开始，跨越了解放战争和建国初期两大历史时期，展现了战斗在隐形战线上的人民英雄是如何不惧怕任何危险，不计较个人牺牲，甚至不顾人民内部的误解和生死裁决，都不暴露个人真实身份，至死不渝，与敌人周旋到底的英雄故事。'
+example = '出血因凝血因子大量被消耗、血小板减少及继发纤溶亢进，发生出血。\n请列示这段文本中的所有特定实体。'
 
 instruction = generate_prompt(instruction=example)
 
