@@ -17,7 +17,7 @@ HuggingFace🤗: [neukg/TechGPT-7B](https://huggingface.co/neukg)
 | [📝模型亮点](#模型亮点)      | 介绍了 TechGPT 2.0 大模型的独特之处    |
 | [⏬模型下载与体验](#模型下载与体验) | TechGPT 2.0 大模型下载地址与Demo体验  |
 | [💻环境部署](#推理与部署)     | 介绍了如何使用个人环境部署并体验大模型         |
-| [💯系统效果](#系统效果)      | 介绍了模型在部分任务上的效果              |
+| [💯系统效果](#系统效果)      | 展示了模型在部分任务上的效果              |
 
 ## 模型简介
 TechGPT-2.0 为 TechGPT-1.0 基础上的改进版本，此次共发布两个7B版本的模型分别为**TechGPT2-Alpaca**、**TechGPT2-Atom**。
@@ -49,7 +49,8 @@ TechGPT-2.0 在继承了 TechGPT-1.0 的能力上进行了重要的改进，其�
 - **TechGPT2-Alpaca** 使用HFL发布的Chinese-Alpaca-2-7B模型，Chinese-Alpaca-2-7B模型是在Chinese-LLaMA-2-7B的基础上进一步通过指令精调获得。Chinese-LLaMA-2-7B为基座模型，是在LLaMA-2的基础上进行中文增量训练获得。
 - **TechGPT2-Atom** 使用Llama中文社区联合AtomEcho（原子回声）共同发布的Atom-7B-chat，并在此基础上进行全量微调后获得。
 - 此外，我们使用**QLora线性插值法**微调的长文本模型参数也将在后续补充开放。
-我们TechGPT-2的两个**7B**版本的模型已经在Hugging Face和GitHub上开源，后续在此模型基础上的改进，也将开源到相同账号，欢迎各位使用并提出宝贵的意见。
+
+我们TechGPT-2的两个**7B**版本的模型已经在Hugging Face和GitHub上开源，使用后续在此模型基础上的改进，也将开源到相同账号，欢迎各位使用并提出宝贵的意见。
 
 ### 模型体验
 我们目前对外提供TechGPT-1.0与TechGPT2-Atom版本的在线服务：http://techgpt.neukg.com/
@@ -65,7 +66,7 @@ TechGPT-2.0 在继承了 TechGPT-1.0 的能力上进行了重要的改进，其�
 - MindFormers版本：dev
 - 7b 推理可在单机单卡上完成部署 
 
-1. 在mindformers环境下执行推理部署时，需要使用ckpt权重；如果没有ckpt权重，则在mindformers目录下需要运行如下转换脚本，将huggingface权重转为ckpt权重，才能使用NPU进行推理：
+1. 在mindformers环境下执行推理部署时，需要使用ckpt权重；如果没有ckpt权重，则在mindformers目录下需要运行如下[转换脚本]()，将huggingface权重转为ckpt权重，才能使用NPU进行推理：
 ``` shell
 python mindformers/models/llama/convert_weight.py \
 --torch_ckpt_dir TORCH_CKPT_DIR \
@@ -94,7 +95,7 @@ pip install torch
 - 注意，必须保证安装的 `transformers` 的版本中已经有 `LlamaForCausalLM` 。<br>
 - Note that you must ensure that the installed version of `transformers` already has `LlamaForCausalLM`.
 
-[TechGPT2-Alpca Example:](https://github.com/neukg/TechGPT/blob/main/inference.py)
+[TechGPT2-Alpca Example:](https://github.com/neukg/TechGPT-2.0/blob/main/pytorch_inference/techgpt2-alpaca_infer.py)
 
 ``` python
 from transformers import LlamaTokenizer, AutoModelForCausalLM, AutoConfig, GenerationConfig
@@ -158,7 +159,7 @@ with torch.no_grad():
 
 ```
 
-[TechGPT2-Atom Example:](https://github.com/neukg/TechGPT/blob/main/inference.py)
+[TechGPT2-Atom Example:](https://github.com/neukg/TechGPT-2.0/blob/main/pytorch_inference/techgpt2-atom_infer.py)
 
 ``` python
 from transformers import LlamaTokenizer, AutoModelForCausalLM, AutoConfig, GenerationConfig
@@ -385,4 +386,73 @@ TechGPT-2.0 在保留了 TechGPT-1.0 模型的通用能力、实体识别能力�
 **TechGPT-2.0** 在许多方面进行了改进，使模型能够拥有更强的知识图谱构建能力尤其是在**嵌套NER**以及**医学、法律**领域能力的提升，并且模型对**幻觉等边界问题以及长文本问题**的回答也得到了改善。
 
 目前，我们对TechGPT的研究也在持续进行中，如外挂知识库、大模型与知识图谱融合、长文本问题优化等方向。
+
+## 主要贡献者
+排名不分先后
+<table>
+  <tr>
+    <td align='center'>
+      <img src="https://avatars.githubusercontent.com/u/86044648?v=4" alt="Contributor 1" height="150">
+      <br>
+      <b>wangjiaqi @ Northeastern University</b>
+      <br>
+        <a href='https://github.com/wangjiaqi886'>TechGPT-2.0 项目的核心开发成员</a>
+    </td>
+    <td align='center'>
+      <img src="https://avatars.githubusercontent.com/u/109963333?v=4" alt="Contributor 2" height="150">
+      <br>
+      <b>Chang Yuying @ Northeastern University</b>
+      <br>
+        <a href='https://github.com/changyuying'>TechGPT-2.0 项目的核心开发成员</a>
+    </td>
+    <td align='center'>
+      <img src="https://avatars.githubusercontent.com/u/49021250?v=4" alt="Contributor 3" height="150">
+      <br>
+      <b>SIGMOID @ Northeastern University</b>
+      <br>
+        <a href='https://github.com/lizhongv'>TechGPT-2.0 项目的核心开发成员</a>
+    </td>
+  </tr>
+  </table>
+
+
+## 免责声明
+
+该项目可供学习及商业使用。在使用过程中，使用者需认真阅读并遵守以下声明:
+
+1. 本项目仅为大模型测试功能而生，使用者需自行承担风险和责任，如因使用不当而导致的任何损失或伤害，本项目概不负责。
+2. 本项目中出现的第三方链接或库仅为提供便利而存在，其内容和观点与本项目无关。使用者在使用时需自行辨别，本项目不承担任何连带责任；
+3. 使用者在测试和使用模型时，应遵守相关法律法规，如因使用不当而造成损失的，本项目不承担责任，使用者应自行承担；若项目出现任何错误，请向我方反馈，以助于我们及时修复；
+4. 本模型中出现的任何违反法律法规或公序良俗的回答，均不代表本项目观点和立场，我们将不断完善模型回答以使其更符合社会伦理和道德规范。
+
+使用本项目即表示您已经仔细阅读、理解并同意遵守以上免责声明。本项目保留在不预先通知任何人的情况下修改本声明的权利。
+
+## 引用
+
+如果使用本项目的代码、数据或模型，请引用本项目。
+
+```
+@misc{TechGPT,
+  author = {Feiliang Ren, Jiaqi Wang, Yuying Chang, Zhong Li},
+  title = {TechGPT 2.0: Technology-Oriented Generative Pretrained Transformer 2.0},
+  year = {2023},
+  publisher = {GitHub},
+  journal = {GitHub repository},
+  howpublished = {\url{https://github.com/neukg/TechGPT}},
+}
+```
+
+## 致谢
+
+**我们对 [Chinese-Alpaca-2](https://github.com/ymcui/Chinese-LLaMA-Alpaca-2) 和 [Atom](https://github.com/FlagAlpha/Llama2-Chinese) 的相关项目和研究开发人员表示衷心的感谢！**
+
+```
+@article{Chinese-LLaMA-Alpaca,
+    title={Efficient and Effective Text Encoding for Chinese LLaMA and Alpaca},
+    author={Cui, Yiming and Yang, Ziqing and Yao, Xin},
+    journal={arXiv preprint arXiv:2304.08177},
+    url={https://arxiv.org/abs/2304.08177},
+    year={2023}
+}
+```
 
