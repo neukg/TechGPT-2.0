@@ -439,12 +439,12 @@ TechGPT-2.0 在保留了 TechGPT-1.0 模型的通用能力、实体识别能力�
 
 ```
 @misc{TechGPT,
-  author = {Feiliang Ren, Jiaqi Wang, Yuying Chang, Zhong Li},
+  author = {Feiliang Ren and Jiaqi Wang and Yuying Chang and Zhong Li},
   title = {TechGPT 2.0: Technology-Oriented Generative Pretrained Transformer 2.0},
   year = {2023},
   publisher = {GitHub},
   journal = {GitHub repository},
-  howpublished = {\url{https://github.com/neukg/TechGPT}},
+  howpublished = {\url{https://github.com/neukg/TechGPT-2.0}},
 }
 ```
 
