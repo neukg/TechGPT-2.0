@@ -1,6 +1,6 @@
 # TechGPT 2.0: Technology-Oriented Generative Pretrained Transformer 2.0
 Demo: [TechGPT-neukg](http://techgpt.neukg.com) <br>
-HuggingFace🤗: [neukg/TechGPT-7B](https://huggingface.co/neukg)
+Hugging Face🤗: [neukg/TechGPT-7B](https://huggingface.co/neukg)
 
 <div align="center">
 
@@ -40,7 +40,7 @@ TechGPT-2.0 在继承了 TechGPT-1.0 的能力上进行了重要的改进，具�
 
 ## 模型下载与体验
 ### 下载地址
-| 模型名称                    |  训练方式   |   大小    |                        HuggingFace 下载                        |                               wisemodel 下载                                |                                                                           ModelScope 下载                                                                           |
+| 模型名称                    |  训练方式   |   大小    |                        Hugging Face 下载                        |                               wisemodel 下载                                |                                                                           ModelScope 下载                                                                           |
 |:------------------------|:-------:|:-------:|:------------------------------------------------------------:|:-------------------------------------------------------------------------:|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------:|
 | TechGPT-1.0             |  全量微调   |  13 GB  |      [[🤗HF]](https://huggingface.co/neukg/TechGPT-7B)       |  [[wisemodel社区]](https://www.wisemodel.cn/models/undefined/TechGPT-1.0)   |    [[<img src="https://g.alicdn.com/sail-web/maas/1.10.1/static/modelscopeIcon.cd89353f.svg" height="12">]](https://modelscope.cn/models/neukg01/TechGPT-1.0)     |
 | TechGPT-2.0-Alpaca 🆕   |  全量微调   |  13 GB  | [[🤗HF]](https://huggingface.co/neukg/TechGPT-2.0-alpaca-hf) | [[wisemodel社区]](https://www.wisemodel.cn/models/neukg/TechGPT-2.0-Alpaca) | [[<img src="https://g.alicdn.com/sail-web/maas/1.10.1/static/modelscopeIcon.cd89353f.svg" height="12">]](https://modelscope.cn/models/neukg01/TechGPT-2.0-Alpaca) |
@@ -51,7 +51,7 @@ TechGPT-2.0 在继承了 TechGPT-1.0 的能力上进行了重要的改进，具�
 **TechGPT2** 在不同规模且经过扩充后的**TechKG**大规模的中文学术语料支持下训练完成。
 - **TechGPT2-Alpaca** 使用HFL发布的Chinese-Alpaca-2-7B模型，Chinese-Alpaca-2-7B模型是在Chinese-LLaMA-2-7B的基础上进一步通过指令精调获得。Chinese-LLaMA-2-7B为基座模型，是在LLaMA-2的基础上进行中文增量训练获得。
 - **TechGPT2-Atom** 使用Llama中文社区联合AtomEcho（原子回声）共同发布的Atom-7B-chat，并在此基础上进行全量微调后获得。
-- 此外，我们使用**QLora线性插值法**微调的长文本模型的Lora权重也已经发布在huggingface上，请自行下载合并。
+- 此外，我们使用**QLora线性插值法**微调的长文本模型的Lora权重也已经发布在Hugging Face上，请自行下载合并。
 
 我们TechGPT-2的两个**7B**版本的模型、以及使用**QLora线性插值法**微调的长文本模型都已经在Hugging Face和GitHub上开源，后续在这些模型基础上的改进，也将开源到相同账号，欢迎大家使用并提出宝贵的意见。
 
@@ -69,13 +69,13 @@ TechGPT-2.0 在继承了 TechGPT-1.0 的能力上进行了重要的改进，具�
 - MindFormers版本：dev
 - 7b 推理可在单机单卡上完成部署 
 
-1. 在mindformers环境下执行推理部署时，需要使用ckpt权重；如果没有ckpt权重，则在mindformers目录下需要运行如下[转换脚本](https://github.com/neukg/TechGPT-2.0/blob/main/ckpt_weight_convert/convert_weight.py)，将huggingface权重转为ckpt权重，才能使用NPU进行推理：
+1. 在mindformers环境下执行推理部署时，需要使用ckpt权重；如果没有ckpt权重，则在mindformers目录下需要运行如下[转换脚本](https://github.com/neukg/TechGPT-2.0/blob/main/ckpt_weight_convert/convert_weight.py)，将Hugging Face权重转为ckpt权重，才能使用NPU进行推理：
 ``` shell
 python mindformers/models/llama/convert_weight.py \
 --torch_ckpt_dir TORCH_CKPT_DIR \
 --mindspore_ckpt_path {path}/MS_CKPT_NAME
 ```
-2. 初次在mindformers环境下执行推理时，会在```mindspore_inference.py```的同级目录下生成```checkpoint_download```文件夹，其中包含了推理所需的```yaml```配置文件和```tokenizer.model```词表等，需要将词表换成该项目huggingface上的对应词表，并将配置文件替换为```mindspore_inference```目录下的```yaml```文件。
+2. 初次在mindformers环境下执行推理时，会在```mindspore_inference.py```的同级目录下生成```checkpoint_download```文件夹，其中包含了推理所需的```yaml```配置文件和```tokenizer.model```词表等，需要将词表换成该项目Hugging Face上的对应词表，并将配置文件替换为```mindspore_inference```目录下的```yaml```文件。
 
 ### 在 GPU 服务器上的环境要求
 请注意TechGPT2-Alpaca和TechGPT2-Atom模型在**训练**和**推理**阶段所使用的prompt格式是不同。
